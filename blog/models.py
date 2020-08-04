@@ -13,3 +13,6 @@ class Article(models.Model):
     content = models.TextField()
     # 发布日期
     publish_date = models.DateTimeField(auto_created=True)
+
+    def __str__(self):
+        return self.title
