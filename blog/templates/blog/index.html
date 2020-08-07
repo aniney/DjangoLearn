@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>三小时入门</title>
+    <title>我爱记歌词ღ( ´･ᴗ･` )</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -28,36 +28,36 @@
                 </p>
             </div>
             {% endfor %}
-
         </div>
 
-        <div>
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+        <div class="body-footer">
+            <div class="clo-md-4 clo-md-offset-3">
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li>
+                      <a href="/blog/index?page={{ previous_page }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                      {% for num in page_num %}
+                      <li><a href="/blog/index?page={{ num }}">{{ num }}</a></li>
+                      {% endfor %}
+                    <li>
+                      <a href="/blog/index?page={{ next_page }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+            </div>
         </div>
+
     </div>
     <div class="col-md-3" role="complementary">
         <div>
             <h2>最新文章</h2>
-            {% for article in article_list %}
-            <h4><a href="#">{{article.title}}</a></h4>
+            {% for article in top5_article_list %}
+            <h4><a href="/blog/detail/{{article.article_id}}">{{ article.title }}</a></h4>
             {% endfor %}
 
         </div>
